@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-@RequestMapping(value = "/account")
+@RequestMapping(value = "/student")
 public class StudentController {
 
     @Autowired
@@ -34,7 +34,7 @@ public class StudentController {
     @RequestMapping(method = RequestMethod.POST, value = "/create")
     public String store(Model model, @Valid Student student, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            model.addAttribute("account", student);
+            model.addAttribute("student", student);
             return "student/form";
         }
         studentService.create(student);
